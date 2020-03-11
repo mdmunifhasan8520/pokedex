@@ -7,6 +7,11 @@
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Pokemon_Hollow.ttf">
+            <string>PokemonHollowNormal</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -18,12 +23,24 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Iy-bF-lBL">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pokedex" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdC-LE-WhI">
+                                        <rect key="frame" x="2" y="2" width="371" height="71"/>
+                                        <fontDescription key="fontDescription" name="PokemonHollowNormal" family="Pokemon Hollow" pointSize="50"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="fdC-LE-WhI" secondAttribute="bottom" constant="2" id="2eB-4R-hf8"/>
                                     <constraint firstAttribute="height" constant="75" id="Bnn-XQ-Zn9"/>
+                                    <constraint firstAttribute="trailing" secondItem="fdC-LE-WhI" secondAttribute="trailing" constant="2" id="KJg-zd-rSI"/>
+                                    <constraint firstItem="fdC-LE-WhI" firstAttribute="top" secondItem="5Iy-bF-lBL" secondAttribute="top" constant="2" id="Tvr-xr-Uwo"/>
+                                    <constraint firstItem="fdC-LE-WhI" firstAttribute="leading" secondItem="5Iy-bF-lBL" secondAttribute="leading" constant="2" id="fE5-dP-wVV"/>
                                 </constraints>
                             </view>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="gKL-PP-hot">
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search Pokemon" translatesAutoresizingMaskIntoConstraints="NO" id="gKL-PP-hot">
                                 <rect key="frame" x="0.0" y="75" width="375" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="6Wn-4Q-po6"/>
@@ -104,6 +121,7 @@
                     </view>
                     <connections>
                         <outlet property="collection" destination="8cF-MW-hbB" id="edO-7Y-9R4"/>
+                        <outlet property="searchBar" destination="gKL-PP-hot" id="q45-kl-AXp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
