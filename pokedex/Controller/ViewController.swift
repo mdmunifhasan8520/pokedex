@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var collection: UICollectionView!
@@ -37,7 +38,7 @@ class ViewController: UIViewController {
         do {
             let csv = try CSV(contentsOfURL: path)
             let rows = csv.rows
-            print(rows)
+            //print(rows)
             
             for row in rows {
                 let pokeId = Int(row["id"]!)!

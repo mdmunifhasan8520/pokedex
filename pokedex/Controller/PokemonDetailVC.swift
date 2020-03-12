@@ -28,9 +28,19 @@ class PokemonDetailVC: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         nameLbl.text = pokemon.name.uppercased()
-        // Do any additional setup after loading the view.
+        
+        pokemon.downloadPokemonDetail {
+            print("Did arrived here")
+            //Whatever we write here will be called after the network call is completed
+            self.updateUI()
+        }
+        
+    }
+    
+    func updateUI() {
+        weightLbl.text = String(pokemon.weight)
+        print("pokemon.weight:  \(pokemon.weight)")
     }
     
     @IBAction func backBtnPressed(_ sender: UIButton) {
