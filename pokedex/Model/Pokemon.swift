@@ -53,7 +53,7 @@ class Pokemon {
     //download pokemon details from the API
     func downloadPokemonDetail(completed: DownloadComplete) {
         AF.request(_pokemonURL).responseJSON { response in
-            //debugPrint(response.value!)
+            debugPrint(response.value!)
             print(self._pokemonURL)
             if let dict = response.value as? Dictionary<String, AnyObject> {
                 if let weight = dict["weight"] as? Int {
