@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import Alamofire
 
 class PokemonDetailVC: UIViewController {
     
     var pokemon: Pokemon!
+    
+   
 
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var mainImg: UIImageView!
@@ -25,27 +28,56 @@ class PokemonDetailVC: UIViewController {
     @IBOutlet weak var currentEvoImg: UIImageView!
     @IBOutlet weak var nextEvoImg: UIImageView!
     
-  
+    @IBOutlet weak var segmentedLbl: UISegmentedControl!
+    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         nameLbl.text = pokemon.name.uppercased()
         
-        pokemon.downloadPokemonDetail {
-            print("Did arrived here")
-            //Whatever we write here will be called after the network call is completed
+        self.pokemon.downloadPokemonDetail {
+            //weightLbl.setNeedsDisplay()
             self.updateUI()
         }
-        
+
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        weightLbl.text = pokemon.weight
     }
     
+    func clearDummyData() {
+        weightLbl.text = ""
+        heightLbl.text = ""
+    }
+
+ 
+    @IBAction func refreshBtn(_ sender: Any) {
+        weightLbl.text = pokemon.weight
+    }
     func updateUI() {
-        weightLbl.text = String(pokemon.weight)
-        print("pokemon.weight:  \(pokemon.weight)")
+        weightLbl.text = pokemon.weight
     }
     
     @IBAction func backBtnPressed(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
+   
     
-
+    
+    @IBAction func segmentedControlIndexChanged(_ sender: Any) {
+    switch segmentedLbl.selectedSegmentIndex
+    {
+    case 0:
+    print("First")
+    case 1:
+    weightLbl.text = pokemon.weight
+    default:
+    break;
+    }
+    }
+    
+    
+    
 }
+
+

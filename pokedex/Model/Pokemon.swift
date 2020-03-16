@@ -15,7 +15,7 @@ class Pokemon {
     private var _description: String!
     private var _type: String!
     private var _height: String!
-    private var _weight: Int!
+    private var _weight: String!
     private var _defense: String!
     private var _pokedexId: Int!
     private var _attack: String!
@@ -26,12 +26,8 @@ class Pokemon {
     
     
     //Pokemon getters
-    var weight: Int {
-        if _weight == nil { // This is called data binding or data protection
-            _weight = 0
-        }
-        return _weight
-        
+   var weight: String {
+        return _weight == nil ? "" : _weight
     }
     
     var name: String {
@@ -48,24 +44,25 @@ class Pokemon {
         self._pokemonURL = "\(URL_BASE)\(URL_POKEMON)\(self._pokedexId!)/"
         
     }
-    
+
     //MARK:Netwok call
     //download pokemon details from the API
     func downloadPokemonDetail(completed: DownloadComplete) {
         AF.request(_pokemonURL).responseJSON { response in
-            debugPrint(response.value!)
-            print(self._pokemonURL)
+            //debugPrint(response.value!)
+            //print(self._pokemonURL)
             if let dict = response.value as? Dictionary<String, AnyObject> {
                 if let weight = dict["weight"] as? Int {
-                    self._weight = weight
+                    self._weight = "\(weight)"
+                    print(self._weight!)
                 }
-                //print(String(self._weight!))
-                print(self._weight!)
             }
-            
         }
         completed()
     }
 
     
+    
+//
 }
+

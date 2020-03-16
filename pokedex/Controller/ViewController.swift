@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     var pokemon = [Pokemon]()
     var filteredPokemon = [Pokemon]()
     var inSearchMode = false
+    var myWeight: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,7 @@ class ViewController: UIViewController {
         searchBar.returnKeyType = UIReturnKeyType.done
         
         parsePokemonCSV()
+        
     }
     
     func parsePokemonCSV() {
@@ -52,12 +54,15 @@ class ViewController: UIViewController {
             print(err.debugDescription)
         }
     }
-    
+   
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PokemonDetailVC" {
             if let detailsVC = segue.destination as? PokemonDetailVC {
                 if let poke = sender as? Pokemon {
                     detailsVC.pokemon = poke
+                    //print(detailsVC.pokemon.weight)
+                    myWeight = detailsVC.pokemon.weight
+                    //print("myWeight: \()")
                 }
             }
         }

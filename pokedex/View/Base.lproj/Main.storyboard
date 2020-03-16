@@ -159,6 +159,15 @@
                                             <action selector="backBtnPressed:" destination="x6V-YA-a6S" eventType="touchUpInside" id="Yro-2m-SjL"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wlj-cW-fYA">
+                                        <rect key="frame" x="320" y="30" width="32" height="26"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="arrow.counterclockwise" catalog="system"/>
+                                        <connections>
+                                            <action selector="refreshBtn:" destination="x6V-YA-a6S" eventType="touchUpInside" id="Ua7-5a-qVH"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -169,6 +178,9 @@
                                     <segment title="Bio"/>
                                     <segment title="Moves"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentedControlIndexChanged:" destination="x6V-YA-a6S" eventType="valueChanged" id="5oD-DH-cEj"/>
+                                </connections>
                             </segmentedControl>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="V9U-c6-qIr">
                                 <rect key="frame" x="16" y="137" width="125" height="125"/>
@@ -303,6 +315,7 @@
                         <outlet property="nameLbl" destination="UTt-7n-78m" id="kZo-ev-JoG"/>
                         <outlet property="nextEvoImg" destination="Kb0-7Z-CT1" id="PWw-CP-CjQ"/>
                         <outlet property="pokedexIdLbl" destination="vyv-pc-wzH" id="VbF-ZG-elW"/>
+                        <outlet property="segmentedLbl" destination="xOd-xf-07o" id="SzG-1F-SDR"/>
                         <outlet property="typeLbl" destination="4ea-jo-wv1" id="ak6-Wk-TMN"/>
                         <outlet property="weightLbl" destination="CwZ-M2-6No" id="nLS-dR-Xvd"/>
                     </connections>
@@ -316,6 +329,7 @@
         <image name="2" width="120" height="120"/>
         <image name="3" width="120" height="120"/>
         <image name="4" width="120" height="120"/>
+        <image name="arrow.counterclockwise" catalog="system" width="56" height="64"/>
         <image name="arrow.left" catalog="system" width="64" height="48"/>
     </resources>
 </document>
